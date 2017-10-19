@@ -11,19 +11,21 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activites.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Moupb-->
         <activity
             android:name="com.mopub.mobileads.MoPubActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -44,6 +46,8 @@
             android:name="com.mopub.mobileads.RewardedMraidActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
 
+        <!--Moupb-->
+        <!--In Mobi-->
         <activity
             android:name="com.inmobi.rendering.InMobiAdActivity"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
@@ -61,6 +65,7 @@
                 <action android:name="com.inmobi.share.id" />
             </intent-filter>
         </receiver>
+        <!--In Mobi-->
     </application>
 
 </manifest>
