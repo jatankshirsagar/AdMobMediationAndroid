@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true //important
     }
     buildTypes {
         release {
@@ -31,10 +32,13 @@ android {
 repositories {
     jcenter() // includes the MoPub SDK and AVID library
     maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])  // Vungle SDK
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -58,11 +62,15 @@ dependencies {
     /*Mopub*/
 
     /*In Mobi*/
-    compile 'com.inmobi.monetization:inmobi-ads:6.2.0'
+    compile 'com.inmobi.monetization:inmobi-ads:6.2.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile project(path: ':inmobi')
     /*In Mobi*/
 
+    /*Vungle*/
+    compile(name: 'VungleAdapter', 'ext': 'aar')  // Vungle Adapter for AdMob
+    /*Vungle*/
 
-    compile project(path: ':inmobi')
+
 }
